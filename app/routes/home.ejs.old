@@ -1,0 +1,11 @@
+module.exports = function(app){
+    app.get('/index', controller.index);
+    app.get('/', controller.index);
+}
+module.exports = function(){
+    var controller = require('./app/controller/home');
+    controller.index = function(req, res){
+        res.render('index', {nome: 'Express'});   
+    }
+    return controller;
+}
